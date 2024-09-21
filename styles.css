@@ -347,3 +347,10 @@ header nav ul li a {
     display: block;
     margin-bottom: 10px;
 }
+
+.merch-item p {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
