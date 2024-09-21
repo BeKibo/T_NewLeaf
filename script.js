@@ -94,5 +94,5 @@ document.addEventListener('DOMContentLoaded', () => {
             // Désactiver le clic global, ne garder que l'icône mute/unmute actif
             document.removeEventListener('click', globalClickHandler);
         }, 1000); // Attendre 1 seconde après la disparition pour cacher le loader
-    }, 1000); // Attendre 5 secondes avant de masquer le loader
+    }, 10000); // Attendre 5 secondes avant de masquer le loader
 });
