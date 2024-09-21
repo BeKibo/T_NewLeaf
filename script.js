@@ -22,10 +22,11 @@ function animateText() {
 
 animateText();
 
-  
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('background-audio');
     const muteBtn = document.getElementById('mute-btn');
+    const loader = document.querySelector('.loader');
+    const hiddenContent = document.getElementById('hidden-content');
 
     // Volume initial à 50%
     audio.volume = 0.06;
@@ -71,8 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Ajoute un trigger global pour jouer/muter/démuter la musique en cliquant n'importe où
-    document.addEventListener('click', (event) => {
-        // Évite que le clic sur le bouton mute/unmute déclenche l'activation
+    const globalClickHandler = (event) => {
         if (event.target !== muteBtn) {
             if (!isPlaying) {
                 playMusic(); // Démarre la musique si elle n'a pas encore démarré
@@ -80,6 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleMute(); // Sinon, bascule entre mute/unmute
             }
         }
-    });
-});
+    };
 
+    document.addEventListener('click', globalClickHandler);
+
+    // Délai avant de masquer le loader et d'afficher le contenu caché
+    setTimeout(() => {
+        loader.style.opacity = '0'; // Transition de disparition du loader
+        setTimeout(() => {
+            loader.style.display = 'none'; // Cacher complètement le loader
+            hiddenContent.classList.add('active'); // Révéler le contenu caché
+
+            // Désactiver le clic global, ne garder que l'icône mute/unmute actif
+            document.removeEventListener('click', globalClickHandler);
+        }, 1000); // Attendre 1 seconde après la disparition pour cacher le loader
+    }, 1000); // Attendre 5 secondes avant de masquer le loader
+});

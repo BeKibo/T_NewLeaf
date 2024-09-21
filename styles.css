@@ -1,123 +1,83 @@
-*{
-
+* {
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
     font-family: sans-serif;
-
 }
 
-body{
-
-    display: flex;
-
+body {
+     display: flex;
     justify-content: center;
-
-    align-items: center;
-
+    /*align-items: center; */
     min-height: 100vh;
-
     background-image: url("BackG/BG.jpg");
-
-
-}
-
-
-
-
-.loader{
-
+    background-size: cover;
+    background-position: center;
     position: relative;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    width: 200px;
-
-    height: 200px;
-
+    overflow: hidden;
 }
 
-.loader span{
-
-    position: absolute;
-
+/* Loader */
+.loader {
+    position: fixed; /* Le loader est toujours visible et fixé */
     top: 0;
-
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9); /* Foncé pour masquer tout le contenu derrière */
+    z-index: 1000; /* Au-dessus de tout */
+    transition: opacity 1s ease-out;
+}
 
-    width:100%;
-
-    height:100%;
-
-    border: 2px solid #50c878
-    ;
-
+/* Circles in the loader */
+.loader span {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Pour que les cercles soient bien ronds */
+    border: 2px solid #50c878;
     pointer-events: none;
-
     animation: animate 5s linear infinite;
-
 }
 
-.loader span:nth-child(1){
-
+.loader span:nth-child(1) {
     border-radius: 65% 66% 34% 30% / 44% 59% 40% 60%;
-
 }
 
-.loader span:nth-child(2){
-
+.loader span:nth-child(2) {
     animation-direction: reverse;
-
     border-radius: 57% 74% 26% 43% / 73% 27% 56% 44%;
-
 }
 
-.loader span:nth-child(3){
-
+.loader span:nth-child(3) {
     animation-duration: 3s;
-
     border-radius: 43% 35% 65% 57% / 38% 62% 64% 36%;
 }
 
-@keyframes animate{
-
-    0%{
-
+@keyframes animate {
+    0% {
         transform: rotate(0deg);
-
     }
-
-    100%{
-
+    100% {
         transform: rotate(360deg);
-
     }
-
 }
 
-.loader h2{
-
+/* Text in the loader */
+.loader h2 {
     color: #50c878;
-
     font-weight: 500;
-
-    font-size: 2.5rem;
-    
+    font-size: 2rem;
     text-transform: uppercase;
-
     font-family: 'trashhand', sans-serif;
-
+    position: absolute;
+    z-index: 10; /* S'assurer que le texte est au-dessus des cercles */
 }
 
-
-
+/* Audio Control */
 .audio-control {
     position: absolute;
     top: 10px;
@@ -128,7 +88,33 @@ body{
     color: #fff;
 }
 
-audio {
-    display: none; /* L'audio est caché, mais jouera en arrière-plan */
+.audio-control i {
+    transition: color 0.3s ease;
 }
+
+.audio-control i:hover {
+    color: #50c878;
+}
+
+/* Audio element is hidden */
+audio {
+    display: none;
+}
+
+.hidden-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+/* Quand le contenu caché devient visible */
+.hidden-content.active {
+    display: block;
+}
+
+
+
+
 

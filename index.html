@@ -6,23 +6,16 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.cdnfonts.com/css/trashhand" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 <body>
 
-
+    <!-- Loader -->
     <div class="loader">
         <span></span>
         <span></span>
         <span></span>
         <!-- Texte à animer -->
         <h2 id="animated-text"></h2>
-    
-    </div>
-
-    <!-- Icône de Mute/Unmute en haut à droite -->
-    <div class="audio-control">
-        <i id="mute-btn" class="fas fa-volume-mute"></i>
     </div>
 
     <!-- Élement audio avec autoplay en mode mute -->
@@ -31,6 +24,15 @@
         Votre navigateur ne supporte pas la lecture audio.
     </audio>
 
+    <!-- Icône de Mute/Unmute en haut à droite -->
+    <div class="audio-control">
+        <i id="mute-btn" class="fas fa-volume-mute"></i>
+    </div>
+
+    <!-- Contenu caché qui sera révélé après le loader -->
+    <div id="hidden-content" class="hidden-content">
+      <p> TEXTE RANDOM</p>
+    </div>
 
     <script src="script.js"></script>
 </body>
