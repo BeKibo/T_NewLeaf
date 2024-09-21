@@ -14,7 +14,7 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
-    overflow: hidden;
+
 }
 
 /* Loader */
@@ -79,9 +79,9 @@ body {
 
 /* Audio Control */
 .audio-control {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    position: fixed; /* Utilise fixed pour que le bouton reste en bas même en scrollant */
+    bottom: 10px; /* Distance par rapport au bas de la page */
+    right: 10px; /* Distance par rapport à la droite de la page */
     z-index: 1000;
     font-size: 24px;
     cursor: pointer;
@@ -93,13 +93,14 @@ body {
 }
 
 .audio-control i:hover {
-    color: #50c878;
+    color: #50c878; /* Couleur verte au survol */
 }
 
 /* Audio element is hidden */
 audio {
     display: none;
 }
+
 
 .hidden-content {
     display: none;
@@ -118,3 +119,231 @@ audio {
 
 
 
+/* Header Styles */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #000; /* Couleur de fond */
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+    width: 100%;
+    max-height: 1080px; /* Limite la hauteur du header à 1080px */
+    overflow: hidden; /* Assure que tout contenu supplémentaire soit caché au-delà de 1080px */
+}
+
+
+header .logo {
+    font-family: 'Trashhand', sans-serif;
+    font-size: 24px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.logo p{
+    font-family: 'trashhand', sans-serif;
+    color: FFFFF0;
+
+}
+
+/* Hero Section Styles */
+.hero {
+    width: 100vw; /* Prend toute la largeur de l'écran */
+    height: 100vh; /* Prend toute la hauteur de l'écran */
+    max-height: 1080px; /* Limite la hauteur maximale à 1080px */
+    background-size: cover; /* Recadre et ajuste l'image pour couvrir toute la section */
+    background-position: center; /* Centre l'image pour un meilleur recadrage */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-content {
+    color: #fff;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadre l'image pour qu'elle s'adapte tout en couvrant */
+    max-height: 1080px; /* Limite la hauteur maximale de l'image à 1080px */
+}
+
+.hero h1 {
+    font-size: 4rem; /* Taille du titre principal */
+    font-weight: bold;
+    color: #F5F5F5;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: 1.5rem; /* Taille du sous-titre */
+    color: #F5F5F5;
+    margin-bottom: 20px;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #F9F9F1;
+    padding: 10px 30px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+#countdown div {
+    text-align: center;
+}
+
+#countdown div span {
+    display: block;
+    font-size: 24px; /* Taille des chiffres */
+    color: #000;
+}
+/* Tourr*/
+#tour-dates {
+    padding: 50px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+#tour-dates h2 {
+    font-size: 3rem;
+    color: #00ff00;
+    margin-bottom: 40px;
+}
+
+.tour-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.continent {
+    flex: 1;
+    margin: 20px;
+    min-width: 300px;
+}
+
+.continent h3 {
+    font-size: 1.5rem;
+    color: #00ff00;
+    margin-bottom: 15px;
+    text-align: left;
+    padding-left: 10px;
+    border-left: 5px solid #00ff00;
+}
+
+.continent ul {
+    list-style: none;
+    padding: 0;
+}
+
+.continent ul li {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.date {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 50px;
+    margin-right: 20px;
+}
+
+.date .day {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.date .month, .date .year {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.event-info {
+    text-align: left;
+    flex: 1;
+}
+
+.location {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.venue {
+    font-size: 1rem;
+    color: #ccc;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.details-tickets {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.details-tickets a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.details-tickets a:hover {
+    color: #00ff00;
+}
+
+.separator {
+    width: 50px;
+    border-top: 1px solid #ccc;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+/* Merch */
+.merch-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
+    gap: 20px; /* Espace entre les items */
+    padding: 50px;
+}
+
+.merch-item img {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
