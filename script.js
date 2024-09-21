@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Désactiver le clic global, ne garder que l'icône mute/unmute actif
             document.removeEventListener('click', globalClickHandler);
         }, 1000); // Attendre 1 seconde après la disparition pour cacher le loader
-    }, 10000); // Attendre 5 secondes avant de masquer le loader
+    }, 1000); // Attendre 5 secondes avant de masquer le loader
 });
 
 
@@ -123,3 +123,25 @@ const countdown = () => {
 
 // Update countdown every second
 setInterval(countdown, 1000);
+
+
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+}
+
+function moveSlide(step) {
+    currentSlide = (currentSlide + step + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Initial call to show the first slide
+showSlide(currentSlide);

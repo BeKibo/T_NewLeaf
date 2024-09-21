@@ -223,7 +223,7 @@ header nav ul li a {
     font-size: 24px; /* Taille des chiffres */
     color: #000;
 }
-/* Tourr*/
+/* Tour */
 #tour-dates {
     padding: 50px;
     background-color: #000;
@@ -238,22 +238,42 @@ header nav ul li a {
 }
 
 .tour-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
+    gap: 20px; /* Space between grid items */
+    padding: 20px;
+}
+
+/* Responsive behavior for different screen sizes */
+@media (max-width: 1200px) {
+    .tour-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+    }
+}
+
+@media (max-width: 900px) {
+    .tour-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .tour-container {
+        grid-template-columns: 1fr; /* 1 column for mobile screens */
+    }
 }
 
 .continent {
-    flex: 1;
-    margin: 20px;
-    min-width: 300px;
+    background-color: #111; /* Background for each continent section */
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
 }
 
 .continent h3 {
     font-size: 1.5rem;
     color: #00ff00;
     margin-bottom: 15px;
-    text-align: left;
     padding-left: 10px;
     border-left: 5px solid #00ff00;
 }
@@ -333,12 +353,85 @@ header nav ul li a {
 }
 
 
+
+/* Slider container */
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Each slide */
+.slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* Image styling */
+.slide img {
+    width: 100vw;
+    height: 1080px;
+    object-fit:contain;
+    opacity: 0.5;
+}
+
+/* Text over the image */
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: ffff0;
+    text-align: center;
+}
+
+.slide-text h2 {
+    font-size: 2.5rem;
+}
+
+.slide-text p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
 /* Merch */
 .merch-items {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
     gap: 20px; /* Espace entre les items */
     padding: 50px;
+
 }
 
 .merch-item img {
